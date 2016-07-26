@@ -1,0 +1,5 @@
+rootProject.name = 'RecipeBook'
+
+include 'web'
+include 'desktop'
+include 'mobile'
