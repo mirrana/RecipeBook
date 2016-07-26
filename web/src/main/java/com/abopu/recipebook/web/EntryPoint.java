@@ -22,21 +22,12 @@
  * SOFTWARE.
  */
 
-//buildscript {
-//    repositories { jcenter() }
-//
-//    dependencies {
-//        classpath 'com.android.tools.build:gradle:2.1.2'
-//    }
-//}
-//
-//apply plugin: 'com.android.application'
-//
-//dependencies {
-//    // Database
-//    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.8.11.2'
-//
-//    // Apache Commons
-//    compile group: 'commons-io', name: 'commons-io', version: '2.4'
-//    compile group: 'org.apache.commons', name: 'commons-csv', version: '1.1'
-//}
+package com.abopu.recipebook.web;
+
+/**
+ * @author Sarah Skanes
+ * @created July 26, 2016.
+ * 
+ * Entry point for the application
+ */
+public class EntryPoint {}
