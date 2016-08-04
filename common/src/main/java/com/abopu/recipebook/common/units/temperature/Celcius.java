@@ -1,12 +1,9 @@
-package com.abopu.recipebook.common.units;
+package com.abopu.recipebook.common.units.temperature;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class MetricUnit extends WeightUnit {
-
-	private long base;
-	private long exponent;
+public class Celcius extends TemperatureUnit {
 
 	/***************************************************************************
 	 *
@@ -17,27 +14,27 @@ public class MetricUnit extends WeightUnit {
 	/**
 	 * {@inheritDoc}
 	 */
-	MetricUnit(int value) {
+	public Celcius(int value) {
 		super(value);
 	}
 
-	MetricUnit(long value) {
+	public Celcius(long value) {
 		super(value);
 	}
 
-	MetricUnit(float value) {
+	public Celcius(float value) {
 		super(value);
 	}
 
-	MetricUnit(double value) {
+	public Celcius(double value) {
 		super(value);
 	}
 
-	MetricUnit(BigInteger value) {
+	public Celcius(BigInteger value) {
 		super(value);
 	}
 
-	MetricUnit(BigDecimal value) {
+	public Celcius(BigDecimal value) {
 		super(value);
 	}
 
@@ -50,27 +47,13 @@ public class MetricUnit extends WeightUnit {
 	 **************************************************************************/
 
 	@Override
-	public WeightUnit asMetric(int exp) {
-		return null;
+	public TemperatureUnit asCelcius() {
+		return this;
 	}
 
 	@Override
-	public WeightUnit asMilligrams() {
-		return null;
-	}
-
-	@Override
-	public WeightUnit asGrams() {
-		return null;
-	}
-
-	@Override
-	public WeightUnit asKilograms() {
-		return null;
-	}
-
-	@Override
-	public WeightUnit asOunces() {
-		return null;
+	public TemperatureUnit asFahrenheit() {
+		BigDecimal celcius = getValue();
+		return new Fahrenheit(celcius.multiply(BigDecimal.valueOf(9/5)).add(BigDecimal.valueOf(32)));
 	}
 }

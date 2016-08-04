@@ -1,4 +1,6 @@
-package com.abopu.recipebook.common.units;
+package com.abopu.recipebook.common.units.weight;
+
+import com.abopu.recipebook.common.units.UnitOfMeasurement;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -57,24 +59,30 @@ public abstract class WeightUnit extends UnitOfMeasurement {
 
 	/***************************************************************************
 	 *
-	 * Abstract Methods
+	 * Public API
 	 *
 	 **************************************************************************/
 
 	/**
-	 * Converts this unit to a metric representation.
-	 * <p>
-	 * This method expects an integer value for {@code x} in the
-	 * following equation:
-	 * <p/>
-	 * {@code}asGrams() * 10^x
-	 * <p/>
-	 * A value of {@code 0} is equivalent to calling {@link #asGrams()}.
-	 *
-	 * @param exp
-	 * @return a
+	 * {@inheritDoc}
 	 */
-	public abstract WeightUnit asMetric(int exp);
+	@Override
+	public final WeightUnit asMetric() {
+		return asGrams();
+	}
+
+	@Override
+	public UnitOfMeasurement asImperial() {
+		return null;
+	}
+
+
+
+	/***************************************************************************
+	 *
+	 * Abstract Methods
+	 *
+	 **************************************************************************/
 
 	public abstract WeightUnit asMilligrams();
 

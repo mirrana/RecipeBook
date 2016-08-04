@@ -1,9 +1,9 @@
-package com.abopu.recipebook.common.units;
+package com.abopu.recipebook.common.units.weight;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class Grams extends WeightUnit {
+public class Gram extends WeightUnit {
 
 	/***************************************************************************
 	 *
@@ -14,42 +14,42 @@ public class Grams extends WeightUnit {
 	/**
 	 * {@inheritDoc}
 	 */
-	public Grams(int value) {
+	public Gram(int value) {
 		super(value);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public Grams(long value) {
+	public Gram(long value) {
 		super(value);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public Grams(float value) {
+	public Gram(float value) {
 		super(value);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public Grams(double value) {
+	public Gram(double value) {
 		super(value);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public Grams(BigInteger value) {
+	public Gram(BigInteger value) {
 		super(value);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	public Grams(BigDecimal value) {
+	public Gram(BigDecimal value) {
 		super(value);
 	}
 
@@ -62,13 +62,8 @@ public class Grams extends WeightUnit {
 	 **************************************************************************/
 
 	@Override
-	public WeightUnit asMetric(int exp) {
-		return new MetricUnit(value.multiply(BigDecimal.valueOf(10 ^ exp)));
-	}
-
-	@Override
 	public WeightUnit asMilligrams() {
-		return asMetric(-3);
+		return null;
 	}
 
 	@Override
@@ -78,7 +73,7 @@ public class Grams extends WeightUnit {
 
 	@Override
 	public WeightUnit asKilograms() {
-		return asMetric(3);
+		return null;
 	}
 
 	@Override

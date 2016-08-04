@@ -1,9 +1,9 @@
-package com.abopu.recipebook.common.units;
+package com.abopu.recipebook.common.units.volume;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class Fahrenheit extends TemperatureUnit {
+public class Litre extends VolumeUnit {
 
 	/***************************************************************************
 	 *
@@ -11,27 +11,27 @@ public class Fahrenheit extends TemperatureUnit {
 	 *
 	 **************************************************************************/
 
-	public Fahrenheit(int value) {
+	Litre(int value) {
 		super(value);
 	}
 
-	public Fahrenheit(long value) {
+	Litre(long value) {
 		super(value);
 	}
 
-	public Fahrenheit(float value) {
+	Litre(float value) {
 		super(value);
 	}
 
-	public Fahrenheit(double value) {
+	Litre(double value) {
 		super(value);
 	}
 
-	public Fahrenheit(BigInteger value) {
+	Litre(BigInteger value) {
 		super(value);
 	}
 
-	public Fahrenheit(BigDecimal value) {
+	Litre(BigDecimal value) {
 		super(value);
 	}
 
@@ -44,13 +44,7 @@ public class Fahrenheit extends TemperatureUnit {
 	 **************************************************************************/
 
 	@Override
-	public TemperatureUnit asCelcius() {
-		BigDecimal celcius = getValue();
-		return new Fahrenheit(celcius.subtract(BigDecimal.valueOf(32)).multiply(BigDecimal.valueOf(5/9)));
-	}
-
-	@Override
-	public TemperatureUnit asFahrenheit() {
-		return this;
+	public VolumeUnit asLitres() {
+		return null;
 	}
 }

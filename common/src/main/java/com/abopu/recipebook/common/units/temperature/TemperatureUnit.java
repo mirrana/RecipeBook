@@ -1,9 +1,14 @@
-package com.abopu.recipebook.common.units;
+package com.abopu.recipebook.common.units.temperature;
+
+import com.abopu.recipebook.common.units.UnitOfMeasurement;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-abstract class TemperatureUnit extends UnitOfMeasurement {
+/**
+ * Abstract class representing a
+ */
+public abstract class TemperatureUnit extends UnitOfMeasurement {
 
 	/***************************************************************************
 	 *
@@ -36,6 +41,27 @@ abstract class TemperatureUnit extends UnitOfMeasurement {
 
 	TemperatureUnit(BigDecimal value) {
 		super(value);
+	}
+
+
+
+	/***************************************************************************
+	 *
+	 * Public API
+	 *
+	 **************************************************************************/
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public final TemperatureUnit asMetric() {
+		return asCelcius();
+	}
+
+	@Override
+	public UnitOfMeasurement asImperial() {
+		return null;
 	}
 
 

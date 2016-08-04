@@ -1,9 +1,9 @@
-package com.abopu.recipebook.common.units;
+package com.abopu.recipebook.common.units.temperature;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class Celcius extends TemperatureUnit {
+public class Fahrenheit extends TemperatureUnit {
 
 	/***************************************************************************
 	 *
@@ -11,30 +11,27 @@ public class Celcius extends TemperatureUnit {
 	 *
 	 **************************************************************************/
 
-	/**
-	 * {@inheritDoc}
-	 */
-	public Celcius(int value) {
+	public Fahrenheit(int value) {
 		super(value);
 	}
 
-	public Celcius(long value) {
+	public Fahrenheit(long value) {
 		super(value);
 	}
 
-	public Celcius(float value) {
+	public Fahrenheit(float value) {
 		super(value);
 	}
 
-	public Celcius(double value) {
+	public Fahrenheit(double value) {
 		super(value);
 	}
 
-	public Celcius(BigInteger value) {
+	public Fahrenheit(BigInteger value) {
 		super(value);
 	}
 
-	public Celcius(BigDecimal value) {
+	public Fahrenheit(BigDecimal value) {
 		super(value);
 	}
 
@@ -48,12 +45,12 @@ public class Celcius extends TemperatureUnit {
 
 	@Override
 	public TemperatureUnit asCelcius() {
-		return this;
+		BigDecimal celcius = getValue();
+		return new Fahrenheit(celcius.subtract(BigDecimal.valueOf(32)).multiply(BigDecimal.valueOf(5/9)));
 	}
 
 	@Override
 	public TemperatureUnit asFahrenheit() {
-		BigDecimal celcius = getValue();
-		return new Fahrenheit(celcius.multiply(BigDecimal.valueOf(9/5)).add(BigDecimal.valueOf(32)));
+		return this;
 	}
 }
