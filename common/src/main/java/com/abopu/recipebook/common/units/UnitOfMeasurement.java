@@ -38,7 +38,6 @@ public abstract class UnitOfMeasurement {
 	 *
 	 **************************************************************************/
 
-
 	/**
 	 * Constructs a {@link UnitOfMeasurement} using an {@link Integer} value.
 	 */
@@ -65,7 +64,7 @@ public abstract class UnitOfMeasurement {
 	protected UnitOfMeasurement(BigInteger value) { this.value = new BigDecimal(value); }
 
 	/**
-	 * Constructs a {@link UnitOfMeasurement} using a {@likn BigDecimal} value.
+	 * Constructs a {@link UnitOfMeasurement} using a {@link BigDecimal} value.
 	 */
 	protected UnitOfMeasurement(BigDecimal value) { this.value = value; }
 

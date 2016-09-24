@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 
 /**
- * Abstract class representing a
+ * Abstract class representing a measurement of temperature.
  */
 public abstract class TemperatureUnit extends UnitOfMeasurement {
 
@@ -23,22 +23,37 @@ public abstract class TemperatureUnit extends UnitOfMeasurement {
 		super(value);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	TemperatureUnit(long value) {
 		super(value);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	TemperatureUnit(float value) {
 		super(value);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	TemperatureUnit(double value) {
 		super(value);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	TemperatureUnit(BigInteger value) {
 		super(value);
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	TemperatureUnit(BigDecimal value) {
 		super(value);
 	}
@@ -56,12 +71,12 @@ public abstract class TemperatureUnit extends UnitOfMeasurement {
 	 */
 	@Override
 	public final TemperatureUnit asMetric() {
-		return asCelcius();
+		return asCelsius();
 	}
 
 	@Override
-	public UnitOfMeasurement asImperial() {
-		return null;
+	public TemperatureUnit asImperial() {
+		return asFahrenheit();
 	}
 
 
@@ -76,7 +91,7 @@ public abstract class TemperatureUnit extends UnitOfMeasurement {
 	 *
 	 * @return
 	 */
-	public abstract TemperatureUnit asCelcius();
+	public abstract TemperatureUnit asCelsius();
 
 	/**
 	 *
