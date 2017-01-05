@@ -31,7 +31,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile project(':common')
+    // Internal
+    compile project(":common")
 
     // Logging
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.+'
@@ -44,7 +45,16 @@ dependencies {
     // Apache Commons
     compile group: 'commons-io', name: 'commons-io', version: '2.4'
     compile group: 'org.apache.commons', name: 'commons-csv', version: '1.1'
-    
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.2'
+
+
     // Testing
     compile group: 'junit', name: 'junit', version: '4.12'
+    
+    // Reflections
+    compile group: 'org.reflections', name: 'reflections', version: '0.9.10'
+    
+    // GUI
+    compile group: 'com.airhacks', name: 'afterburner.fx', version: '1.7.+'
+    compile group: 'org.controlsfx', name: 'controlsfx', version: '8.40.+'
 }

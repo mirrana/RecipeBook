@@ -91,19 +91,19 @@ BEGIN
 
   -- Banana
   INSERT INTO foods (name, default_unit) VALUES ('Banana', gram) RETURNING id INTO food;
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,calories,0.3);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,fat,0.3);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,saturated_fat,0.1);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,polyunsaturated_fat,0.1);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,sodium,1);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,potassium,358);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,carbs,23);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,fiber,2.6);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,sugar,12);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,protein,1.1);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,vitamin_a,1);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,vitamin_c,14);
-  INSERT INTO foods_nutrients (food_id, nutrient_id, value) VALUES (food,iron,1);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,calories,0.3);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,fat,0.3);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,saturated_fat,0.1);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,polyunsaturated_fat,0.1);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,sodium,1);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,potassium,358);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,carbs,23);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,fiber,2.6);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,sugar,12);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,protein,1.1);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,vitamin_a,1);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,vitamin_c,14);
+  INSERT INTO foods_nutrients (food_id, nutrient_id, scalar) VALUES (food,iron,1);
 
   --   @formatter:on
 END $$;

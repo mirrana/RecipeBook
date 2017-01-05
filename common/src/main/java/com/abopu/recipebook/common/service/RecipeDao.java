@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-package com.abopu.food;
+package com.abopu.recipebook.common.service;
+
+import com.abopu.recipebook.common.dto.Recipe;
 
 /**
  * @author Sarah Skanes
- * @created July 26, 2016.
- * 
- * Entry point for the application
+ * @created October 22, 2016.
  */
-public class EntryPoint {}
+public interface RecipeDao extends DAO<Recipe> {}

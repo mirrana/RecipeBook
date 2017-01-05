@@ -18,16 +18,7 @@ import java.math.BigInteger;
  * @see WeightUnit
  */
 public abstract class UnitOfMeasurement {
-
-	/***************************************************************************
-	 *
-	 * Local Fields
-	 *
-	 **************************************************************************/
-
-	/**
-	 * Scalar value for this {@link UnitOfMeasurement}
-	 */
+	
 	private BigDecimal value;
 
 

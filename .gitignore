@@ -36,6 +36,7 @@ gradle-app.setting
 
 .idea/
 classes/
+*.iml
 
 ## File-based project format:
 *.iws

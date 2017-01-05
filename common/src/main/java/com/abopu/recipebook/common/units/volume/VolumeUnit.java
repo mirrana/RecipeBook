@@ -9,6 +9,26 @@ public abstract class VolumeUnit extends UnitOfMeasurement {
 
 	/***************************************************************************
 	 *
+	 * Static Members
+	 *
+	 **************************************************************************/
+
+	public static VolumeUnit convert(VolumeUnit from, Class<? extends VolumeUnit> to) {
+		if (from == null) throw new NullPointerException("Parameter 'from' is null.");
+		if (to == null) throw new NullPointerException("Parameter 'to' is null.");
+		if (to == VolumeUnit.class) throw new IllegalArgumentException("Must supply a concrete implementation of Volume");
+		
+		if (to == Litre.class) {
+			return from.asLitres();
+		}
+
+		throw new IllegalArgumentException("Unsupported unit type: " + to.getSimpleName());
+	}
+	
+	
+	
+	/***************************************************************************
+	 *
 	 * Constructors
 	 *
 	 **************************************************************************/
@@ -36,6 +56,8 @@ public abstract class VolumeUnit extends UnitOfMeasurement {
 	VolumeUnit(BigDecimal value) {
 		super(value);
 	}
+	
+	
 
 	/***************************************************************************
 	 *
@@ -51,9 +73,12 @@ public abstract class VolumeUnit extends UnitOfMeasurement {
 		return asLitres();
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
-	public UnitOfMeasurement asImperial() {
-		return null;
+	public final VolumeUnit asImperial() {
+		return asQuarts();
 	}
 
 
@@ -63,11 +88,46 @@ public abstract class VolumeUnit extends UnitOfMeasurement {
 	 * Abstract Methods
 	 *
 	 **************************************************************************/
-
+	
 	/**
 	 *
 	 * @return
 	 */
 	public abstract VolumeUnit asLitres();
 
+	/**
+	 *
+	 * @return
+	 */
+	public abstract VolumeUnit asTeaspoons();
+
+	/**
+	 *
+	 * @return
+	 */
+	public abstract VolumeUnit asTablespoons();
+
+	/**
+	 *
+	 * @return
+	 */
+	public abstract VolumeUnit asOunces();
+
+	/**
+	 *
+	 * @return
+	 */
+	public abstract VolumeUnit asPints();
+
+	/**
+	 *
+	 * @return
+	 */
+	public abstract VolumeUnit asQuarts();
+
+	/**
+	 *
+	 * @return
+	 */
+	public abstract VolumeUnit asGallons();
 }

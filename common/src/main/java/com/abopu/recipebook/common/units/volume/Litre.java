@@ -3,7 +3,19 @@ package com.abopu.recipebook.common.units.volume;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public class Litre extends VolumeUnit {
+public final class Litre extends VolumeUnit {
+	
+	/***************************************************************************
+	 *
+	 * Static Members
+	 *
+	 **************************************************************************/
+	
+	public static Litre from(VolumeUnit unit) {
+		return (Litre) unit.asLitres();
+	}
+	
+	
 
 	/***************************************************************************
 	 *
@@ -34,17 +46,50 @@ public class Litre extends VolumeUnit {
 	Litre(BigDecimal value) {
 		super(value);
 	}
-
-
-
+	
+	
+	
 	/***************************************************************************
 	 *
 	 * Implementation
 	 *
 	 **************************************************************************/
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public VolumeUnit asLitres() {
+		return this;
+	}
+
+	@Override
+	public VolumeUnit asTeaspoons() {
+		return null;
+	}
+
+	@Override
+	public VolumeUnit asTablespoons() {
+		return null;
+	}
+
+	@Override
+	public VolumeUnit asOunces() {
+		return null;
+	}
+
+	@Override
+	public VolumeUnit asPints() {
+		return null;
+	}
+
+	@Override
+	public VolumeUnit asQuarts() {
+		return null;
+	}
+
+	@Override
+	public VolumeUnit asGallons() {
 		return null;
 	}
 }
