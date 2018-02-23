@@ -31,7 +31,7 @@ import java.util.Set;
  * @author Sarah Skanes
  * @created October 22, 2016.
  */
-public class Ingredient implements Serializable {
+public class Ingredient implements IsIngredient,  Serializable {
 	
 	private Long id;
 	private String name;

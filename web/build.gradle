@@ -37,11 +37,13 @@ dependencies {
     
     // Spring
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.2.+'
+    compile group: 'org.apache.taglibs', name: 'taglibs-standard-impl', version: '1.2.5'
 
-    // Web
-    compile group: 'jstl', name: 'jstl', version: '1.2'
-    
+    // Thymeleaf
+    compile group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '3.0.+'
+
     // Jetty
+    compile group: 'org.eclipse.jetty', name: 'jetty-annotations', version: '9.3.+'
     compile group: 'org.eclipse.jetty', name: 'jetty-webapp', version: '9.3.+'
 
     // Jackson
@@ -62,10 +64,3 @@ dependencies {
     // Testing
     compile group: 'junit', name: 'junit', version: '4.+'
 }
-
-//configurations {
-//    all {
-//        // check for updates every build
-//        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
-//    }
-//}

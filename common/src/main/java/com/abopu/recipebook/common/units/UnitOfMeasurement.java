@@ -1,8 +1,5 @@
 package com.abopu.recipebook.common.units;
 
-import com.abopu.recipebook.common.units.temperature.TemperatureUnit;
-import com.abopu.recipebook.common.units.weight.WeightUnit;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
@@ -13,72 +10,98 @@ import java.math.BigInteger;
  * <p/>
  * Scalar values for the unit are stored as {@link BigInteger}.
  *
- * @author Sarah Skanes &lt;agent154@aboopu.com&gt;
- * @see TemperatureUnit
- * @see WeightUnit
+ * @author Sarah Skanes &lt;agent154@abopu.com&gt;
  */
 public abstract class UnitOfMeasurement {
+
+	private Integer id;
+	private String name;
+	private String abbreviation;
+	private BigDecimal ratioAsMetric;
+	private UnitClass category;
+
+	private BigDecimal scalarValue;
+
 	
-	private BigDecimal value;
-
-
 
 	/***************************************************************************
 	 *
 	 * Constructors
 	 *
 	 **************************************************************************/
+	
+	protected UnitOfMeasurement(UnitClass category, double ratioAsMetric) {
+		this(category, BigDecimal.valueOf(ratioAsMetric));
+	}
 
-	/**
-	 * Constructs a {@link UnitOfMeasurement} using an {@link Integer} value.
-	 */
-	protected UnitOfMeasurement(int value) { this.value = BigDecimal.valueOf(value); }
+	protected UnitOfMeasurement(UnitClass category, BigDecimal ratioAsMetric) {
+		this.category = category;
+		this.ratioAsMetric = ratioAsMetric;
+	}
+	
 
-	/**
-	 * Constructs a {@link UnitOfMeasurement} using a {@link Long} value.
-	 */
-	protected UnitOfMeasurement(long value) { this.value = BigDecimal.valueOf(value); }
-
-	/**
-	 * Constructs a {@link UnitOfMeasurement} using a {@link Float} value.
-	 */
-	protected UnitOfMeasurement(float value) { this.value = BigDecimal.valueOf(value); }
-
-	/**
-	 * Constructs a {@link UnitOfMeasurement} using a {@link Double} value.
-	 */
-	protected UnitOfMeasurement(double value) { this.value = BigDecimal.valueOf(value); }
-
-	/**
-	 * Constructs a {@link UnitOfMeasurement} using aa {@link BigInteger} value.
-	 */
-	protected UnitOfMeasurement(BigInteger value) { this.value = new BigDecimal(value); }
-
-	/**
-	 * Constructs a {@link UnitOfMeasurement} using a {@link BigDecimal} value.
-	 */
-	protected UnitOfMeasurement(BigDecimal value) { this.value = value; }
-
-
-
+	
 	/***************************************************************************
 	 *
 	 * Public API
 	 *
 	 **************************************************************************/
 
-	/**
-	 * Return this {@link UnitOfMeasurement} in metric form.
-	 */
-	public abstract UnitOfMeasurement asMetric();
+	public Integer getId() {
+		return id;
+	}
 
-	/**
-	 * Return this {@link UnitOfMeasurement} in imperial form.
-	 */
-	public abstract UnitOfMeasurement asImperial();
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-	/**
-	 * Get the scalar value for this {@link UnitOfMeasurement}
-	 */
-	public BigDecimal getValue() { return value; }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getAbbreviation() {
+		return abbreviation;
+	}
+
+	public void setAbbreviation(String abbreviation) {
+		this.abbreviation = abbreviation;
+	}
+
+	public BigDecimal getRatioAsMetric() {
+		return ratioAsMetric;
+	}
+
+	public void setRatioAsMetric(BigDecimal ratioAsMetric) {
+		this.ratioAsMetric = ratioAsMetric;
+	}
+
+	public UnitClass getCategory() {
+		return category;
+	}
+
+	public void setCategory(UnitClass category) {
+		this.category = category;
+	}
+
+	public BigDecimal getScalarValue() {
+		return scalarValue;
+	}
+	
+	public void setScalarValue(BigDecimal scalarValue) {
+		this.scalarValue = scalarValue;
+	}
+	
+	
+	
+	/***************************************************************************
+	 *
+	 * Abstract API
+	 *
+	 **************************************************************************/
+	
+	public abstract UnitType getUnitType();
 }

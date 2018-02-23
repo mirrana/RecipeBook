@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!--
+  ~ The MIT License (MIT)
+  ~
+  ~ Copyright (c) 2017 Sarah Skanes
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<html xmlns:th="http://www.thymeleaf.org" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link rel="stylesheet" type="text/css" href="/css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/easy-autocomplete.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/easy-autocomplete.themes.min.css">
+
+    <style>
+      .rTable {
+        display: table;
+      }
+
+      .rTableRow {
+        display: table-row;
+      }
+      
+      .rTableRow:hover {
+        background-color: antiquewhite;
+      }
+
+      .rTableHeading {
+        display: table-header-group;
+        background-color: darkseagreen;
+      }
+
+      .rTableBody {
+        display: table-row-group;
+      }
+
+      .rTableFoot {
+        display: table-footer-group;
+      }
+
+      .rTableCell, .rTableHead {
+        display: table-cell;
+      }
+    </style>
+    <meta charset="UTF-8">
+    <title>Food</title>
+  </head>
+  <body>
+    <!--<div class="rTable">-->
+      <!--<div class="rTableRow">-->
+        <!--<div class="cell width-med">-->
+          <!--<div class="label">Name:</div>-->
+        <!--</div>-->
+        <!--<div class="rTableCell">-->
+          <!--<div class="input"><input type="text" name="name" th:unit="${food_name}"/></div>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="rTableRow">-->
+        <!--<div class="rTableCell">-->
+          <!--<div class="label">Brand:</div>-->
+        <!--</div>-->
+        <!--<div class="textfield">-->
+          <!--<div class="input"><input type="text" id="brand_input" name="brand" th:unit="${brand_name}"/></div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <div class="rTable">
+      <div class="rTableHeading">
+        <div class="rTableHead">
+          <div class="label">Food Name</div>
+        </div>
+        <div class="rTableHead">
+          <div class="label">Brand Name</div>
+        </div>
+        <div class="rTableHead">
+          <div class="label">Serving Size (Volume)</div>
+        </div>
+        <div class="rTableHead">
+          <div class="label">Serving Size (Weight)</div>
+        </div>
+        <div class="rTableHead">
+          <div class="label">Protein</div>
+        </div>
+        <div class="rTableHead">
+          <div class="label">Net Carbs</div>
+        </div>
+        <div class="rTableHead">
+          <div class="label">Fat</div>
+        </div>
+      </div>
+      <div class="rTableRow" th:each="food : ${foodItems}">
+        <div class="rTableCell">
+          <div class="label" th:text="${food.name}"></div>
+        </div>
+        <div class="rTableCell">
+          <div class="label" th:text="${food.brand.name}"></div>
+        </div>
+        <div class="rTableCell">
+          <div class="label" th:text="${food.servingVolume != null} ? ${food.servingVolume.scalarValue} + ${food.servingVolume.abbreviation} : 'n/a'"></div>
+        </div>
+        <div class="rTableCell">
+          <div class="label" th:text="${food.servingWeight != null} ? ${food.servingWeight.scalarValue} + ${food.servingWeight.abbreviation} : 'n/a'"></div>
+        </div>
+        <div class="rTableCell">
+          <div class="label" th:text="${#numbers.formatDecimal(food.nutrients.Protein.unit.scalarValue, 1, 1)} + ${food.nutrients.Protein.unit.abbreviation}"></div>
+        </div>
+        <div class="rTableCell">
+          <div class="label" th:text="${#numbers.formatDecimal(food.nutrients.Carbohydrates.unit.scalarValue, 1, 1)} + ${food.nutrients.Carbohydrates.unit.abbreviation}"></div>
+        </div>
+        <div class="rTableCell">
+          <div class="label" th:text="${#numbers.formatDecimal(food.nutrients.Fat.unit.scalarValue, 1, 1)} + ${food.nutrients.Fat.unit.abbreviation}"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="/js/jquery-3.1.1.js"></script>
+  <script src="/js/jquery.easy-autocomplete.min.js"></script>
+  <script>
+      var options = {
+          url: function (filter) {
+              return "/api/brands/search?filter=" + filter
+          },
+          getValue: "name",
+          list: {
+              match: {
+                  enabled: true
+              },
+              maxNumberOfElements: 8
+          },
+          theme: "plate"
+      };
+      $("#brand_input").easyAutocomplete(options);
+  </script>
+</html>

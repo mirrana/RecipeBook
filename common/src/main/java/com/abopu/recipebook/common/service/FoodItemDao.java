@@ -24,6 +24,7 @@
 
 package com.abopu.recipebook.common.service;
 
+import com.abopu.data.dao.DAO;
 import com.abopu.recipebook.common.dto.FoodItem;
 
 /**

@@ -31,7 +31,20 @@ import java.util.Collection;
  * @author Sarah Skanes
  * @created October 22, 2016.
  */
-public class Recipe implements Serializable {
+public class Recipe implements IsIngredient, Serializable {
 	
-	private Collection<Ingredient> ingredients;
+	private int id;
+	private String title;
+	private String description;
+	
+	/** Prep Time (minutes) */
+	private Integer prepTime;
+	
+	/** Cook Time (minutes) */
+	private Integer cookTime;
+	private int servings;
+	private String source;
+	private String comments;
+	private Collection<IsIngredient> ingredients;
+	private Collection<String> tags;
 }

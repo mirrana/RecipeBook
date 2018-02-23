@@ -24,8 +24,10 @@
 
 package com.abopu.recipebook.common.dto;
 
+import com.abopu.recipebook.common.units.UnitOfMeasurement;
+
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author Sarah Skanes
@@ -33,8 +35,82 @@ import java.util.Collection;
  */
 public class FoodItem implements Serializable {
 	
-	private Integer              id;
-	private String               name;
-	private Brand                brand;
-	private Collection<Nutrient> nutrients;
+	/***************************************************************************
+	 *
+	 * Local Variables
+	 *
+	 **************************************************************************/
+	
+	private Integer               id;
+	private String                name;
+	private Brand                 brand;
+	private UnitOfMeasurement     servingWeight;
+	private UnitOfMeasurement     servingVolume;
+	private Map<String, Nutrient> nutrients;
+	
+	
+	
+	/***************************************************************************
+	 *
+	 * Constructors
+	 *
+	 **************************************************************************/
+	
+	public FoodItem() {}
+	
+	
+	
+	/***************************************************************************
+	 *
+	 * Public API
+	 *
+	 **************************************************************************/
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+
+	public UnitOfMeasurement getServingWeight() {
+		return servingWeight;
+	}
+
+	public void setServingWeight(UnitOfMeasurement servingWeight) {
+		this.servingWeight = servingWeight;
+	}
+
+	public UnitOfMeasurement getServingVolume() {
+		return servingVolume;
+	}
+
+	public void setServingVolume(UnitOfMeasurement servingVolume) {
+		this.servingVolume = servingVolume;
+	}
+
+	public Map<String, Nutrient> getNutrients() {
+		return nutrients;
+	}
+
+	public void setNutrients(Map<String, Nutrient> nutrients) {
+		this.nutrients = nutrients;
+	}
 }

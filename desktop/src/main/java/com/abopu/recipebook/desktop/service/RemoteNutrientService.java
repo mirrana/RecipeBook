@@ -25,9 +25,11 @@
 package com.abopu.recipebook.desktop.service;
 
 import com.abopu.recipebook.common.dto.Nutrient;
+import com.abopu.recipebook.common.exception.DaoException;
 import com.abopu.recipebook.common.service.NutrientDao;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author Sarah Skanes
@@ -58,5 +60,15 @@ public class RemoteNutrientService extends RemoteService implements NutrientDao 
 	@Override
 	public boolean update(Nutrient object) {
 		return false;
+	}
+
+	@Override
+	public Collection<Nutrient> getByQuery(Map<String, String> query) throws DaoException {
+		return null;
+	}
+
+	@Override
+	public Map<String, Nutrient> getByFood(Integer foodId, Integer brandId) {
+		return null;
 	}
 }

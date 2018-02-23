@@ -158,7 +158,7 @@
 //		T object = getBean(beanId, beanClazz);
 //		for (Entry<String, Object> entry : properties.entrySet()) {
 //			try {
-//				BeanUtils.setProperty(object, entry.getKey(), entry.getValue());
+//				BeanUtils.setProperty(object, entry.getKey(), entry.getUnit());
 //			} catch (Exception e) {
 //				/*
 //				 * In the Spring manner, wrap any checked exceptions thrown by

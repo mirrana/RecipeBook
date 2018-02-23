@@ -1,11 +1,13 @@
 package com.abopu.recipebook.common.units.weight;
 
+import com.abopu.recipebook.common.units.UnitClass;
 import com.abopu.recipebook.common.units.UnitOfMeasurement;
+import com.abopu.recipebook.common.units.UnitType;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-public abstract class WeightUnit extends UnitOfMeasurement {
+public class WeightUnit extends UnitOfMeasurement {
 
 	/***************************************************************************
 	 *
@@ -16,43 +18,15 @@ public abstract class WeightUnit extends UnitOfMeasurement {
 	/**
 	 * {@inheritDoc}
 	 */
-	WeightUnit(int value) {
-		super(value);
+	public WeightUnit(UnitClass category, double ratioAsMetric) {
+		super(category, ratioAsMetric);
 	}
 
 	/**
 	 * {@inheritDoc}
 	 */
-	WeightUnit(long value) {
-		super(value);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	WeightUnit(float value) {
-		super(value);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	WeightUnit(double value) {
-		super(value);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	WeightUnit(BigInteger value) {
-		super(value);
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	WeightUnit(BigDecimal value) {
-		super(value);
+	public WeightUnit(UnitClass category, BigDecimal ratioAsMetric) {
+		super(category, ratioAsMetric);
 	}
 
 
@@ -63,32 +37,8 @@ public abstract class WeightUnit extends UnitOfMeasurement {
 	 *
 	 **************************************************************************/
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public final WeightUnit asMetric() {
-		return asGrams();
+	public UnitType getUnitType() {
+		return UnitType.WEIGHT;
 	}
-
-	@Override
-	public UnitOfMeasurement asImperial() {
-		return null;
-	}
-
-
-
-	/***************************************************************************
-	 *
-	 * Abstract Methods
-	 *
-	 **************************************************************************/
-
-	public abstract WeightUnit asMilligrams();
-
-	public abstract WeightUnit asGrams();
-
-	public abstract WeightUnit asKilograms();
-
-	public abstract WeightUnit asOunces();
 }

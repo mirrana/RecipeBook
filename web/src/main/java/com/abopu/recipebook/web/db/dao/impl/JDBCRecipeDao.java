@@ -24,51 +24,72 @@
 
 package com.abopu.recipebook.web.db.dao.impl;
 
-import com.abopu.recipebook.web.db.tools.SQLHelper;
 import com.abopu.recipebook.common.dto.Recipe;
+import com.abopu.recipebook.common.exception.DaoException;
+import com.abopu.recipebook.common.exception.NotImplementedException;
 import com.abopu.recipebook.common.service.RecipeDao;
+import com.abopu.recipebook.web.db.dao.AbstractDao;
+import com.abopu.recipebook.web.db.dao.factory.DaoFactory;
 import com.abopu.recipebook.web.db.factory.ConnectionFactory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author Sarah Skanes
  * @created October 22, 2016.
  */
-public class JDBCRecipeDao implements RecipeDao {
+public class JDBCRecipeDao extends AbstractDao<Recipe> implements RecipeDao {
+	
+	/***************************************************************************
+	 *
+	 * Constructors
+	 *
+	 **************************************************************************/
+	
+
+	public JDBCRecipeDao(DaoFactory factory) {
+		super(factory);
+	}
+	
+	
+	
+	/***************************************************************************
+	 *
+	 * 
+	 *
+	 **************************************************************************/
 
 	@Override
 	public Recipe create(Recipe object) {
-		try (Connection conn = ConnectionFactory.getWebConnection();
-				 PreparedStatement ps = conn.prepareStatement("")) {
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
+		throw new NotImplementedException("create");
 	}
 
 	@Override
 	public boolean delete(Integer id) {
-		return false;
+		throw new NotImplementedException("delete");
 	}
 
 	@Override
 	public Collection<Recipe> getAll() {
-		return null;
+		throw new NotImplementedException("getAll");
 	}
 
 	@Override
 	public Recipe get(Integer id) {
-		return null;
+		throw new NotImplementedException("get");
 	}
 
 	@Override
 	public boolean update(Recipe object) {
-		return false;
+		throw new NotImplementedException("update");
+	}
+
+	@Override
+	public Collection<Recipe> getByQuery(Map<String, String> query) throws DaoException {
+		throw new NotImplementedException("getByQuery");
 	}
 }
-	

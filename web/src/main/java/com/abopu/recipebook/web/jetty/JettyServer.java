@@ -25,9 +25,12 @@
 package com.abopu.recipebook.web.jetty;
 
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.webapp.Configuration;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 import java.io.File;
+import java.lang.management.ManagementFactory;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
@@ -36,17 +39,30 @@ import java.nio.file.Paths;
  */
 public class JettyServer {
 
-	public static void main(String[] args) throws Exception {
+	public static final String PATH_TO_WEBAPP = "web/src/main/webapp";
+
+	public static void main(String[] args) throws Exception {		
 		WebAppContext webapp = new WebAppContext();
 		webapp.setContextPath("/");
 		
-		String webappFolder = new File("web/webapp").getAbsolutePath();
-		webapp.setResourceBase(webappFolder);
-		webapp.setDescriptor(Paths.get(webappFolder, "WEB-INF", "web.xml").toString());
+		Path webappFolder = new File(PATH_TO_WEBAPP).toPath();
+		webapp.setDescriptor(webappFolder.resolve(Paths.get("WEB-INF", "web.xml")).toAbsolutePath().toString());
+		webapp.setResourceBase(webappFolder.toAbsolutePath().toString());
+		webapp.setContextPath("/");
 
 		Server server = new Server(8080);
+
+		Configuration.ClassList classlist = Configuration.ClassList.setServerDefault( server );
+		classlist.addBefore(
+				"org.eclipse.jetty.webapp.JettyWebXmlConfiguration",
+				"org.eclipse.jetty.annotations.AnnotationConfiguration" );
+
+		webapp.setAttribute(
+				"org.eclipse.jetty.server.webapp.ContainerIncludeJarPattern",
+				".*/[^/]*servlet-api-[^/]*\\.jar$|.*/javax.servlet.jsp.jstl-.*\\.jar$|.*/[^/]*taglibs.*\\.jar$" );
+
 		server.setHandler(webapp);
-		
+
 		server.start();
 		server.join();
 	}

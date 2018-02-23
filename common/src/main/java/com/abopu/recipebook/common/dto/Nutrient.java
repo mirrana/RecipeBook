@@ -24,6 +24,8 @@
 
 package com.abopu.recipebook.common.dto;
 
+import com.abopu.recipebook.common.units.UnitOfMeasurement;
+
 import java.io.Serializable;
 
 /**
@@ -34,7 +36,7 @@ public class Nutrient implements Serializable {
 	
 	private Integer id;
 	private String name;
-	private Integer unitId;
+	private UnitOfMeasurement unit;
 
 	public Integer getId() {
 		return id;
@@ -52,11 +54,11 @@ public class Nutrient implements Serializable {
 		this.name = name;
 	}
 
-	public Integer getUnitId() {
-		return unitId;
+	public UnitOfMeasurement getUnit() {
+		return unit;
 	}
 
-	public void setUnitId(Integer unitId) {
-		this.unitId = unitId;
+	public void setUnit(UnitOfMeasurement unit) {
+		this.unit = unit;
 	}
 }

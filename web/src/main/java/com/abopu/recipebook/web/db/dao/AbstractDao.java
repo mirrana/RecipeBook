@@ -24,6 +24,10 @@
 
 package com.abopu.recipebook.web.db.dao;
 
+import com.abopu.recipebook.common.exception.DaoException;
+import com.abopu.recipebook.common.jdbc.ResultSetExtractor;
+import com.abopu.recipebook.web.db.dao.factory.DaoFactory;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -35,22 +39,21 @@ import java.util.Collection;
  */
 public abstract class AbstractDao<T> {
 	
-	protected final Collection<T> processResult(ResultSet rs) throws SQLException {
+	protected DaoFactory factory;
+	
+	public AbstractDao(DaoFactory factory) {
+		this.factory = factory;
+	}
+	
+	protected final Collection<T> extract(ResultSet rs, ResultSetExtractor<T> extractor) throws SQLException, DaoException {
 		Collection<T> records = new ArrayList<>();
 		while (rs.next()) {
-			records.add(createRecord(rs));
+			T record = extractor.extract(rs);
+			if (record != null) {
+				records.add(record);
+			}
 		}
 		
 		return records;
 	}
-
-	protected final T getFirstRecordOrNull(Collection<T> records) {
-		if (!records.isEmpty()) {
-			return records.iterator().next();
-		}
-		
-		return null;
-	}
-	
-	protected abstract T createRecord(ResultSet rs) throws SQLException;
 }

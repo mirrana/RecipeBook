@@ -28,8 +28,33 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans.xsd">
+  
+  <bean id="factory" class="com.abopu.recipebook.web.db.dao.factory.DaoFactory">
+    <property name="brandDao" ref="brandDao"/>
+    <property name="foodItemDao" ref="foodItemDao"/>
+    <property name="nutrientDao" ref="nutrientDao"/>
+    <property name="unitDao" ref="unitDao"/>
+    <property name="recipeDao" ref="recipeDao"/>
+  </bean>
 
-  <bean class="com.abopu.recipebook.web.db.dao.impl.JDBCRecipeDao"/>
-  <bean class="com.abopu.recipebook.web.db.dao.impl.JDBCNutrientDao"/>
+  <bean id="recipeDao" class="com.abopu.recipebook.web.db.dao.impl.JDBCRecipeDao">
+    <constructor-arg ref="factory"/>
+  </bean>
+  
+  <bean id="nutrientDao" class="com.abopu.recipebook.web.db.dao.impl.JDBCNutrientDao">
+    <constructor-arg ref="factory"/>
+  </bean>
+  
+  <bean id="brandDao" class="com.abopu.recipebook.web.db.dao.impl.JDBCBrandDao">
+    <constructor-arg ref="factory"/>
+  </bean>
+  
+  <bean id="foodItemDao" class="com.abopu.recipebook.web.db.dao.impl.JDBCFoodItemDao">
+    <constructor-arg ref="factory"/>
+  </bean>
+
+  <bean id="unitDao" class="com.abopu.recipebook.web.db.dao.impl.JDBCUnitDao">
+    <constructor-arg ref="factory"/>
+  </bean>
 
 </beans>

@@ -24,10 +24,17 @@
 
 package com.abopu.recipebook.common.service;
 
+import com.abopu.data.dao.DAO;
 import com.abopu.recipebook.common.dto.Nutrient;
+import com.abopu.recipebook.common.exception.DaoException;
+
+import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author Sarah Skanes
  * @created October 22, 2016.
  */
-public interface NutrientDao extends DAO<Nutrient> {}
+public interface NutrientDao extends DAO<Nutrient> {
+	Map<String, Nutrient> getByFood(Integer foodId, Integer brandId) throws DaoException;
+}

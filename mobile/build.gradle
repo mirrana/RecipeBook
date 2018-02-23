@@ -1,49 +1,50 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
-    }
-}
-
-apply plugin: 'idea'
-apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion 25
-    buildToolsVersion "24.0.3"
-    
-    defaultConfig {
-        applicationId "com.abopu.recipebook"
-        minSdkVersion 22
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-dependencies {
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
-//    compile group: 'me.dm7.barcodescanner', name: 'zbar', version: '1.9'
-    compile group: 'com.google.zxing', name: 'core', version: '3.3.0'
-
-    testCompile 'junit:junit:4.12'
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', 
-            { exclude group: 'com.android.support', module: 'support-annotations' })
-}
-
-
-task clean(type: Delete) {
-    delete project.buildDir
-} 
+//buildscript {
+//    repositories {
+//        jcenter()
+//    }
+//
+//    dependencies {
+//        classpath 'com.android.tools.build:gradle:2.2.3'
+//    }
+//}
+//
+//apply plugin: 'idea'
+//apply plugin: 'com.android.application'
+//
+//android {
+//    compileSdkVersion 25
+//    buildToolsVersion "24.0.3"
+//    
+//    defaultConfig {
+//        applicationId "com.abopu.recipebook"
+//        minSdkVersion 22
+//        targetSdkVersion 25
+//        versionCode 1
+//        versionName "1.0"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//    }
+//    buildTypes {
+//        release {
+//            minifyEnabled false
+//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+//        }
+//    }
+//}
+//
+//dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+//
+//    compile group: 'com.android.support', name: 'appcompat-v7', version: '25.1.0'
+//    compile group: 'com.journeyapps', name: 'zxing-android-embedded', version: '3.4.0'
+//
+//    // Testing
+//    testCompile 'junit:junit:4.12'
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', 
+//            { exclude group: 'com.android.support', module: 'support-annotations' })
+//}
+//
+//clean {
+//    doLast {
+//        delete project.buildDir
+//    }
+//}
