@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/web/src/main/java/com/abopu/recipebook/web/db" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/web/support/modules/web/scripts/PostgreSQL" dialect="PostgreSQL" />
+  </component>
+</project>
