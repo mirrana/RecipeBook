@@ -5,5 +5,5 @@ project(":DataManager").projectDir = file("lib/DataManager")
 
 include 'web'
 include 'desktop'
-//include 'mobile'
+include 'mobile'
 include 'common'
