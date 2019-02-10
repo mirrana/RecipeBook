@@ -24,7 +24,7 @@
 
 package com.abopu.recipebook.web.db.tools;
 
-import com.abopu.recipebook.common.exception.NotImplementedException;
+import com.abopu.lang.NotImplementedException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

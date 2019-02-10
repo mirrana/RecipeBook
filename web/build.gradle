@@ -34,6 +34,7 @@ targetCompatibility = 1.8
 dependencies {
     // Internal
     compile project(":common")
+    compile project(":utilities")
     
     // Spring
     compile group: 'org.springframework', name: 'spring-webmvc', version: '4.2.+'
