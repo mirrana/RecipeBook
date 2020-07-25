@@ -10,7 +10,7 @@ import java.math.BigInteger;
  * <p/>
  * Scalar values for the unit are stored as {@link BigInteger}.
  *
- * @author Sarah Skanes &lt;agent154@abopu.com&gt;
+ * @author Sarah Skanes &lt;mirrana@abopu.com&gt;
  */
 public abstract class UnitOfMeasurement {
 
