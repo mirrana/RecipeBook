@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common.iml" group="RecipeBook/common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common_main.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common_main.iml" group="RecipeBook/common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common_test.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common_test.iml" group="RecipeBook/common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/desktop.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/desktop.iml" group="RecipeBook/desktop" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/desktop_main.iml" group="RecipeBook/desktop" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" filepath="$PROJECT_DIR$/.idea/modules/desktop/desktop_test.iml" group="RecipeBook/desktop" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mobile/mobile.iml" filepath="$PROJECT_DIR$/.idea/modules/mobile/mobile.iml" group="RecipeBook/mobile" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web.iml" group="RecipeBook/web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web_main.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web_main.iml" group="RecipeBook/web" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web/web_test.iml" filepath="$PROJECT_DIR$/.idea/modules/web/web_test.iml" group="RecipeBook/web" />
+    </modules>
+  </component>
+</project>
